@@ -20,23 +20,24 @@
 
 
 class Activity:
+
     def activity_selection(self,start,end):
         n=len(start)
-        activity=sorted(zip(start,end) , key=lambda x:x[1])
+        meetings=sorted(zip(start,end), key=lambda x:x[1])
 
+        end_time=meetings[0][1]
         count=1
-        end_time=activity[0][1] #first_endtime
 
         for i in range(1,n):
-            if activity[i][0]>=end_time:
+            if end_time<=meetings[i][0]:
                 count+=1
-                end_time=activity[i][1]
+                end_time=meetings[i][1]
 
         return count
 
 
 start=list(map(int,input().split()))
 end=list(map(int,input().split()))
-ans=Activity
+ans=Activity()
 result=ans.activity_selection(start,end)
 print(result)

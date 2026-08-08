@@ -35,7 +35,7 @@ class Sequencing:
 
         max_deadline=max(job[1] for job in jobs)
 
-        slots=[-1]*max_deadline
+        slots=[-1]*(max_deadline+1)
 
         total=0
         count=0
